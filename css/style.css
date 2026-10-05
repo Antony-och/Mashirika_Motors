@@ -782,10 +782,8 @@ button, a, select, input, textarea { -webkit-tap-highlight-color:transparent; }
 .catalog-empty-mark { width:52px; height:52px; display:grid; place-items:center; margin:0 auto 12px; border-radius:50%; background:#f5f7f9; color:#718096; font-size:30px; }
 .catalog-empty h3 { margin-bottom:4px; color:#172033; font-size:20px; }
 .catalog-empty p { margin-bottom:20px; color:#718096; font-size:14px; }
-.catalog-footer { padding:25px 0; }
-.catalog-footer-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; }
-.catalog-footer-inner p, .catalog-footer-inner > a:last-child { color:#aab5c4; font-size:13px; text-decoration:none; }
-.catalog-footer-inner .footer-logo { color:#fff; font-size:16px; }
+.catalog-footer { padding:48px 24px 24px; }
+.catalog-footer .footer-grid { margin-bottom:40px; }
 @media(max-width:1000px) {
  .catalog-filter-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
  .catalog-search-wrap { grid-column:span 2; }
