@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-labelledby="title">
+  <title id="title">Mashirika Motors logo</title>
+  <rect width="72" height="72" rx="17" fill="#b42336"/>
+  <path d="m13 41 5-12c1.6-4 4.5-6 8.8-6h18.4c4.3 0 7.2 2 8.8 6l5 12c2.5 1.2 4 3.5 4 6.2V55h-6.2a7 7 0 0 1-13.6 0H28.8a7 7 0 0 1-13.6 0H9v-7.8c0-2.7 1.5-5 4-6.2Z" fill="#fff"/>
+  <path d="m22 36 2.8-7c.6-1.5 1.7-2.2 3.4-2.2h5.5V36H22Zm16.8-9.2h5.4c1.7 0 2.8.7 3.4 2.2l2.8 7H38.8v-9.2Z" fill="#b42336"/>
+  <path d="M11 43h50" stroke="#b42336" stroke-width="2" opacity=".25"/>
+  <circle cx="22" cy="54" r="4" fill="#172033"/>
+  <circle cx="50" cy="54" r="4" fill="#172033"/>
+</svg>

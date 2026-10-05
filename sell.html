@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Sell your car with Mashirika Motors. Submit your vehicle details for review and connect with buyers across Kenya."/>
+  <title>Sell Your Car | Mashirika Motors</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="img/Mashirika_Motors_Logo.png"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html#home" class="nav-logo">
+        <img class="logo-image" src="img/Mashirika_Motors_Logo.png" alt="Mashirika Motors"/>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="sell.html" aria-current="page" class="nav-sell-link">Sell your car</a></li>
+      </ul>
+      <button class="btn-admin" onclick="location.href='admin.html'">Admin Panel</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html#home">Home</a>
+      <a href="cars.html">Cars</a>
+      <a href="index.html#about">About</a>
+      <a href="sell.html" aria-current="page" class="nav-sell-link">Sell your car</a>
+      <a href="admin.html">Admin Panel</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="sell-section">
+      <div class="container">
+        <div class="sell-section-heading">
+          <div class="section-tag">Sell with Mashirika Motors</div>
+          <h2>Sell your car with confidence.</h2>
+          <p>Share a few details and our team will review your submission before it goes live.</p>
+        </div>
+
+        <div class="contact-grid sell-layout">
+          <aside class="contact-info sell-aside">
+            <div class="sell-aside-top">
+              <span class="sell-aside-eyebrow">A simpler way to sell</span>
+              <h3>From your driveway to its next owner.</h3>
+              <p>Start with the details you know. We’ll help you take it from there.</p>
+            </div>
+
+            <div class="sell-steps">
+              <div class="sell-step"><span>01</span><div><strong>Tell us about the car</strong><p>Add the key details and your asking price.</p></div></div>
+              <div class="sell-step"><span>02</span><div><strong>We review your listing</strong><p>Our team checks the information before publishing.</p></div></div>
+              <div class="sell-step"><span>03</span><div><strong>Connect with buyers</strong><p>Interested buyers contact you directly.</p></div></div>
+            </div>
+
+            <div class="sell-contact-note"><span class="sell-live-dot"></span><span>Need a hand? Talk to our team</span></div>
+            <div class="sell-contact-links">
+              <a href="tel:+254700123456"><span>Call us</span><strong>+254 700 123 456</strong></a>
+              <a href="mailto:info@mashirikamotors.co.ke"><span>Email</span><strong>info@mashirikamotors.co.ke</strong></a>
+            </div>
+          </aside>
+
+          <div class="contact-form-box sell-form-box">
+            <div class="sell-form-heading">
+              <div><span class="sell-form-step">SELLER SUBMISSION</span><h3>Start your listing</h3></div>
+              <span class="sell-required-note"><i>*</i> Required</span>
+            </div>
+
+            <form id="sell-form" class="sell-form" onsubmit="submitListing(event)">
+              <fieldset class="sell-fieldset">
+                <legend><span>1</span>Your contact details</legend>
+                <div class="form-row">
+                  <div class="sell-field"><label for="sell-name">Full name <i>*</i></label><input id="sell-name" type="text" name="name" placeholder="e.g. Amina Wanjiku" autocomplete="name" required/></div>
+                  <div class="sell-field"><label for="sell-phone">Phone number <i>*</i></label><input id="sell-phone" type="tel" name="phone" placeholder="+254 700 000 000" autocomplete="tel" required/></div>
+                </div>
+                <div class="sell-field"><label for="sell-email">Email address <i>*</i></label><input id="sell-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required/></div>
+              </fieldset>
+
+              <fieldset class="sell-fieldset">
+                <legend><span>2</span>Vehicle details</legend>
+                <div class="form-row">
+                  <div class="sell-field"><label for="sell-make">Make <i>*</i></label><input id="sell-make" type="text" name="car-make" placeholder="e.g. Toyota" autocomplete="off" required/></div>
+                  <div class="sell-field"><label for="sell-model">Model <i>*</i></label><input id="sell-model" type="text" name="car-model" placeholder="e.g. Hilux Double Cab" autocomplete="off" required/></div>
+                </div>
+                <div class="form-row sell-three-col">
+                  <div class="sell-field"><label for="sell-year">Year <i>*</i></label><input id="sell-year" type="number" name="car-year" min="1990" max="2026" placeholder="2021" inputmode="numeric" required/></div>
+                  <div class="sell-field"><label for="sell-price">Asking price (KES) <i>*</i></label><input id="sell-price" type="text" name="car-price" inputmode="numeric" autocomplete="off" oninput="formatMoneyInput(this)" placeholder="2,500,000" required/></div>
+                  <div class="sell-field"><label for="sell-mileage">Mileage (km)</label><input id="sell-mileage" type="number" name="mileage" min="0" step="1000" placeholder="e.g. 48,000" inputmode="numeric" value="0"/></div>
+                </div>
+                <div class="form-row">
+                  <div class="sell-field"><label for="sell-condition">Condition</label><select id="sell-condition" name="condition"><option value="Used">Used</option><option value="New">New</option></select></div>
+                  <div class="sell-field"><label for="sell-location">Location</label><select id="sell-location" name="location"><option value="Nairobi">Nairobi</option><option value="Mombasa">Mombasa</option><option value="Kisumu">Kisumu</option><option value="Nakuru">Nakuru</option><option value="Eldoret">Eldoret</option></select></div>
+                </div>
+                <div class="form-row">
+                  <div class="sell-field"><label for="sell-fuel">Fuel type</label><select id="sell-fuel" name="fuel"><option value="Petrol">Petrol</option><option value="Diesel">Diesel</option><option value="Hybrid">Hybrid</option><option value="Electric">Electric</option></select></div>
+                  <div class="sell-field"><label for="sell-transmission">Transmission</label><select id="sell-transmission" name="transmission"><option value="Automatic">Automatic</option><option value="Manual">Manual</option></select></div>
+                </div>
+                <div class="sell-field"><label for="sell-color">Colour</label><input id="sell-color" type="text" name="color" placeholder="e.g. Pearl white"/></div>
+                <div class="sell-field"><label for="sell-message">Anything else buyers should know?</label><textarea id="sell-message" name="message" placeholder="Service history, recent repairs, features or condition notes" rows="4"></textarea><small>Clear, honest details help buyers make an informed decision.</small></div>
+              </fieldset>
+
+              <div class="sell-field sell-photos-field">
+                <label>Photos <span>(optional, up to 5)</span></label>
+                <p class="sell-photo-help">Add clear photos of the exterior and interior. Your first photo will be the cover.</p>
+                <div id="seller-photo-grid" class="sell-photo-grid"></div>
+                <div class="sell-photo-actions">
+                  <label class="sell-upload-button" for="seller-photo-files"><span aria-hidden="true">＋</span> Upload photos<input id="seller-photo-files" type="file" accept="image/jpeg,image/png,image/webp" multiple/></label>
+                  <div class="sell-url-add"><input id="seller-photo-url" type="url" inputmode="url" placeholder="Paste a direct image URL (https://…)" aria-label="Direct image URL"/><button type="button" onclick="addSellerPhotoUrl()">Add URL</button></div>
+                </div>
+                <p id="seller-photo-status" class="sell-photo-status" aria-live="polite">JPG, PNG or WebP. Uploads are resized for the listing.</p>
+              </div>
+
+              <div class="sell-submit-row">
+                <button type="submit" class="btn-primary sell-submit">Submit for review <span aria-hidden="true">→</span></button>
+                <p>Your details are used to review and manage this listing.</p>
+              </div>
+            </form>
+
+            <div id="form-success" class="form-success sell-success" style="display:none" role="status" aria-live="polite">
+              <div class="sell-success-mark" aria-hidden="true"></div>
+              <span class="sell-form-step">SUBMISSION RECEIVED</span>
+              <h3>Thanks — we have your car details.</h3>
+              <p>Our team will review the listing and contact you using the details you provided.</p>
+              <button type="button" onclick="resetSellerForm()" class="btn-primary">Submit another car</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo"><img class="footer-car-image" src="img/Mashirika_Motors_Logo.png" alt="Mashirika Motors"/></div>
+        <p>Kenya's trusted car marketplace. Quality vehicles, verified dealers, fair prices.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="index.html#home">Home</a></li><li><a href="cars.html">Cars</a></li><li><a href="index.html#about">About</a></li><li><a href="sell.html" aria-current="page">Sell your car</a></li></ul>
+      </div>
+      <div>
+        <h4>Popular Makes</h4>
+        <ul><li><a href="#">Toyota</a></li><li><a href="#">Nissan</a></li><li><a href="#">Subaru</a></li><li><a href="#">Mercedes</a></li></ul>
+      </div>
+      <div>
+        <h4>Cities</h4>
+        <ul><li><a href="#">Nairobi</a></li><li><a href="#">Mombasa</a></li><li><a href="#">Kisumu</a></li><li><a href="#">Nakuru</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p> 2024 Mashirika Motors. All rights reserved.</p>
+      <p>Proudly based in Nairobi</p>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

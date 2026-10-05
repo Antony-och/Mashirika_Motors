@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Find quality new and used cars across Kenya. Browse local listings, compare prices, and contact sellers directly with Mashirika Motors."/>
+  <title>Mashirika Motors – Quality Cars in Kenya</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="img/Mashirika_Motors_Logo.png"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <img class="logo-image" src="img/Mashirika_Motors_Logo.png" alt="Mashirika Motors"/>
+      
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" aria-current="page">Home</a></li>
+      <li><a href="cars.html">Cars</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="sell.html" class="nav-sell-link">Sell your car</a></li>
+    </ul>
+    <button class="btn-admin" onclick="location.href='admin.html'">Admin Panel</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">&#9776;</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" aria-current="page">Home</a>
+    <a href="cars.html">Cars</a>
+    <a href="#about">About</a>
+    <a href="sell.html" class="nav-sell-link">Sell your car</a>
+    <a href="admin.html">Admin Panel</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="catalog-hero">
+  <div class="container catalog-hero-inner">
+    <div class="section-tag">Mashirika Motors inventory</div>
+    <h1>Find a car that<br/><span>fits your next move.</span></h1>
+    <p>Explore available vehicles from sellers across Kenya. Compare the details, then contact the seller directly.</p>
+    <a class="catalog-hero-link" href="#cars">Explore all cars <span aria-hidden="true">↓</span></a>
+    <div class="catalog-hero-photo" role="img" aria-label="A car ready for the road"></div>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<section class="catalog-controls" id="search-bar" aria-label="Search and filter vehicles">
+  <div class="container">
+    <div class="catalog-controls-head">
+      <div class="catalog-search-heading">
+        <a class="catalog-controls-link" href="cars.html" aria-label="Open the cars page and browse inventory">
+          <span class="section-tag">Your search</span>
+          <h2>Find your match</h2>
+        </a>
+      </div>
+      <a href="cars.html" class="catalog-reset" id="clear-filters">Clear filters</a>
+    </div>
+    <div class="catalog-filter-grid">
+      <div class="catalog-search-wrap">
+        <label for="catalog-query">Search inventory</label>
+        <input id="catalog-query" type="search" placeholder="Try Toyota, SUV, low mileage…" autocomplete="off"/>
+      </div>
+      <div>
+        <label for="f-make">Make</label>
+        <select id="f-make">
+          <option value="">All makes</option>
+          <option>Toyota</option><option>Nissan</option><option>Subaru</option>
+          <option>Mazda</option><option>Honda</option><option>Mercedes</option>
+          <option>BMW</option><option>Mitsubishi</option><option>Isuzu</option>
+        </select>
+      </div>
+      <div>
+        <label for="f-condition">Condition</label>
+        <select id="f-condition">
+          <option value="">Any condition</option>
+          <option>New</option><option>Used</option>
+        </select>
+      </div>
+      <div>
+        <label for="f-location">Location</label>
+        <select id="f-location">
+          <option value="">All Kenya</option>
+          <option>Nairobi</option><option>Mombasa</option><option>Kisumu</option>
+          <option>Nakuru</option><option>Eldoret</option>
+        </select>
+      </div>
+      <div>
+        <label for="f-price">Budget</label>
+        <select id="f-price">
+          <option value="">Any price</option>
+          <option value="0-500000">Under KES 500K</option>
+          <option value="500000-1000000">KES 500K – 1M</option>
+          <option value="1000000-2000000">KES 1M – 2M</option>
+          <option value="2000000-5000000">KES 2M – 5M</option>
+          <option value="5000000-999999999">Above KES 5M</option>
+        </select>
+      </div>
+      <div>
+        <label for="f-sort">Sort by</label>
+        <select id="f-sort">
+          <option value="recent">Recently added</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+          <option value="year-new">Newest year</option>
+        </select>
+      </div>
+      <div class="catalog-search-action">
+        <button type="button" class="btn-search" onclick="searchCars()">
+          <svg class="search-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="catalog-active-line">
+      <p id="results-count">5 hand-picked deals</p>
+      <span>All prices in Kenyan shillings</span>
+    </div>
+  </div>
+</section>
+
+<!-- CARS -->
+<section id="cars" class="cars-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="hot-deals-heading"><div class="section-tag">Hand-picked for you</div><h2 id="cars-title">Hot Deals</h2><p id="results-count"></p></div>
+      <a class="all-cars-link" href="cars.html">View all vehicles <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hot-deals-carousel" id="hot-deals-carousel">
+      <div class="hot-deals-viewport"><div id="cars-grid" class="cars-grid"></div></div>
+      <div class="hot-deals-controls" id="hot-deals-controls" aria-label="Hot deals slideshow" style="display:none">
+        <button type="button" class="hot-deals-arrow" onclick="moveHotDeals(-1)" aria-label="Previous hot deals">&#8592;</button>
+        <div class="hot-deals-dots" id="hot-deals-dots" role="tablist" aria-label="Choose a hot deal slide"></div>
+        <button type="button" class="hot-deals-arrow" onclick="moveHotDeals(1)" aria-label="Next hot deals">&#8594;</button>
+      </div>
+    </div>
+    <div id="no-results" class="no-results" style="display:none">
+      <div class="empty-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg></div>
+      <h3>No cars match your search</h3>
+      <p>Try adjusting your filters, or browse every available car.</p><a class="btn-primary empty-browse-link" href="cars.html">Browse all cars</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="container about-grid">
+    <div class="about-text">
+      <div class="section-tag">About Mashirika Motors</div>
+      <h2>A simpler way to find your next car.</h2>
+      <p class="about-intro">We bring car buyers and sellers together in one easy-to-browse marketplace, with listings from across Kenya.</p>
+      <p class="about-detail">Compare prices, locations and vehicle details at your own pace. When you find a car that fits, reach out to the seller directly and take the next step with confidence.</p>
+      <div class="about-points">
+        <article class="about-point"><span>01</span><div><h3>Explore clearly</h3><p>See the details that help you narrow your search.</p></div></article>
+        <article class="about-point"><span>02</span><div><h3>Compare your options</h3><p>Browse by make, price, condition and location.</p></div></article>
+        <article class="about-point"><span>03</span><div><h3>Connect directly</h3><p>Contact the seller when you are ready to know more.</p></div></article>
+      </div>
+      <div class="about-actions"><a class="btn-primary" href="cars.html">Explore all cars</a><a class="about-sell-link" href="sell.html">Thinking of selling? <span>List your car &rarr;</span></a></div>
+    </div>
+    <div class="about-visual">
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1400&q=85" alt="Car travelling along a scenic road" loading="lazy"/>
+      <div class="about-image-caption"><span>MADE FOR LOCAL ROADS</span><strong>Your next journey starts here.</strong></div>
+      <div class="about-image-card"><span class="about-image-mark">MM</span><div><strong>Buy with clarity.</strong><small>Sell with confidence.</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo"><img class="footer-car-image" src="img/Mashirika_Motors_Logo.png" alt="Mashirika Motors"/> </div>
+      <p>Kenya's trusted car marketplace. Quality vehicles, verified dealers, fair prices.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul><li><a href="#home" aria-current="page">Home</a></li><li><a href="cars.html">Cars</a></li><li><a href="#about">About</a></li><li><a href="sell.html">Sell your car</a></li></ul>
+    </div>
+    <div>
+      <h4>Popular Makes</h4>
+      <ul><li><a href="#">Toyota</a></li><li><a href="#">Nissan</a></li><li><a href="#">Subaru</a></li><li><a href="#">Mercedes</a></li></ul>
+    </div>
+    <div>
+      <h4>Cities</h4>
+      <ul><li><a href="#">Nairobi</a></li><li><a href="#">Mombasa</a></li><li><a href="#">Kisumu</a></li><li><a href="#">Nakuru</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p> 2024 Mashirika Motors. All rights reserved.</p>
+    <p>Proudly based in Nairobi</p>
+  </div>
+</footer>
+
+<!-- CAR MODAL -->
+<div id="car-modal" class="modal" onclick="closeModal(event)">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Vehicle details">
+    <button class="modal-close" aria-label="Close vehicle details" onclick="closeModal()"></button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
